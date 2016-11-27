@@ -1,10 +1,11 @@
+# Installation Script for dotfiles (http://github.com/stabbxr/dotfiles/)
 #!/bin/bash
 
 # Update the system
-sudo apt-get update
+sudo apt-get -y update
 
 # Download required packages
-sudo apt-get install htop cmatrix tor tor-arm rofi i3 lolcat cowsay feh xcompmgr figlet vim ranger i3blocks pavucontrol pasyst
+sudo apt-get -y install htop cmatrix tor tor-arm rofi i3 lolcat cowsay feh xcompmgr figlet vim ranger i3blocks pavucontrol pasystray
 
 # Download tewi-font and install
 git clone https://www.github.com/lucy/tewi-font.git
@@ -20,11 +21,12 @@ sudo fc-cache -f -v
 echo "[1/9] Tewi has been installed"
 
 # Download i3-gaps
+cd
 git clone https://www.github.com/Airblader/i3 i3-gaps
 cd i3-gaps
 
 # Install dependencies for i3-gaps
-sudo apt-get install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf
+sudo apt-get -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf
 
 # Compile and install i3-gaps
 autoreconf --force --install
@@ -40,9 +42,11 @@ wget https://launchpad.net/ubuntu/+archive/primary/+files/libxcb-xrm0_1.0-1_amd6
 sudo dpkg -i libxcb-xrm0*
 sudo dpkg -i libxcb-xrm-de*
 
+# Cleaning up leftover packages
+sudo rm libxcb*
+
 # Back to i3-gaps installation
-cd i3-gaps
-cd build/
+cd && cd i3-gaps/build/
 ../configure --prefix=/usr --sysconfdir=/etc
 make && sudo make install
 
@@ -86,7 +90,9 @@ echo "[6/9] bashrc copied!"
 echo "[7/10] Updating system"
 sudo apt-get update
 
-
 echo "[8/9] System updated"
-echo "[9/9] Rebooting..."
-sudo reboot
+
+# Clean up and finalise
+cd && rm -rf dotfiles
+echo "Auto Generated File: Everything has been sucessfully installed" > a_message_from_stabbxr.txt
+echo "Done. Just reboot :)"
