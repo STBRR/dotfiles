@@ -63,9 +63,8 @@ sudo fc-cache -f -v
 echo "[3/9] Font-awesome framework installed"
 
 # Copy over configs from dotfiles repo
-mkdir .i3
-cd dotfiles
-cd i3
+cd && mkdir .i3
+cd dotfiles/i3/
 cp config ~/.i3/
 
 echo "[4/9] i3 configuration copied"
@@ -78,8 +77,7 @@ sudo cp i3blocks.conf /etc/i3blocks.conf
 echo "[5/9] i3-blocks configuaration copied"
 
 # bashrc
-cd & cd dotfiles
-cd bash
+cd && cd dotfiles/bash/
 sudo cp bashrc ~/.bashrc
 
 echo "[6/9] bashrc copied!"
@@ -91,3 +89,4 @@ sudo apt-get update
 
 echo "[8/9] System updated"
 echo "[9/9] Rebooting..."
+sudo reboot
