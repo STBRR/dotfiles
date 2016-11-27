@@ -93,6 +93,10 @@ sudo apt-get update
 echo "[8/9] System updated"
 
 # Clean up and finalise
-cd && rm -rf dotfiles
+cd && rm -rf dotfiles/ Desktop/ Documents/ Downloads/ i3-gaps Music/ Pictures/ Public/ Templates/ Videos/
+rm examples.desktop
 echo "Auto Generated File: Everything has been sucessfully installed" > a_message_from_stabbxr.txt
-echo "Done. Just reboot :)"
+echo "Done Rebooting."
+sudo reboot
+
+# EOF
