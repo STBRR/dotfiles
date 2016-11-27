@@ -1,8 +1,8 @@
 # My Dotfiles. 
 
 ## Installation?
-  * Clone Repo: `git clone https://github.com/stabbxr/dotfiles.git`
-  * Run `install.sh`
+  * Clone Repo: `$ git clone https://github.com/stabbxr/dotfiles.git`
+  * Run `$ ./install.sh`
   * Done :)
 
 ## Current Setup
