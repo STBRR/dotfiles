@@ -1,9 +1,9 @@
 # My Dotfiles. 
 
 ## Installation?
-  * Clone Repo: `$ git clone https://github.com/stabbxr/dotfiles.git`
-  * Run `$ ./install.sh`
-  * Done :)
+  * Clone the repo: `$ git clone https://github.com/stabbxr/dotfiles.git && cd dotfiles`
+  * Change script permissions and execute`$ chmod +x install.sh && ./install.sh`
+  * You're done :)
 
 ## Current Setup
   * Linux Distro: `Ubuntu 16.04 LTS`
