@@ -8,7 +8,7 @@ sudo apt-get -y update
 sudo apt-get -y install htop cmatrix tor tor-arm rofi i3 lolcat cowsay feh xcompmgr figlet vim ranger i3blocks pavucontrol pasystray
 
 # Extra packages 
-#sudo apt-get -y install xfonts-terminus console-terminus weechat
+sudo apt-get -y install xfonts-terminus console-terminus weechat
 #echo "Installing Extra Packages"
 
 # Download tewi-font and install
@@ -99,6 +99,6 @@ echo "[8/9] System updated"
 # Clean up and finalise
 cd && rm -rf dotfiles/ Desktop/ Documents/ Downloads/ i3-gaps Music/ Pictures/ Public/ Templates/ Videos/
 rm examples.desktop
-clear && cowsay Installation Finished | lolcat
-read -p "[ENTER] to reboot!"
+read -p "[ENTER] to reboot!"; sudo reboot
+
 # EOF
