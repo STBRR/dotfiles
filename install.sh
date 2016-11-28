@@ -7,6 +7,10 @@ sudo apt-get -y update
 # Download required packages
 sudo apt-get -y install htop cmatrix tor tor-arm rofi i3 lolcat cowsay feh xcompmgr figlet vim ranger i3blocks pavucontrol pasystray
 
+# Extra packages 
+#sudo apt-get -y install xfonts-terminus console-terminus weechat
+#echo "Installing Extra Packages"
+
 # Download tewi-font and install
 git clone https://www.github.com/lucy/tewi-font.git
 cd tewi-font
@@ -95,8 +99,6 @@ echo "[8/9] System updated"
 # Clean up and finalise
 cd && rm -rf dotfiles/ Desktop/ Documents/ Downloads/ i3-gaps Music/ Pictures/ Public/ Templates/ Videos/
 rm examples.desktop
-echo "Auto Generated File: Everything has been sucessfully installed" > a_message_from_stabbxr.txt
-echo "Done Rebooting."
-sudo reboot
-
+clear && cowsay Installation Finished | lolcat
+read -p "[ENTER] to reboot!"
 # EOF
