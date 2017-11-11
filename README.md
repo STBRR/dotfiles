@@ -3,16 +3,14 @@
 ## Installation?
   * Clone the repo: `$ git clone https://github.com/stabbxr/dotfiles.git && cd dotfiles`
   * Change script permissions and execute`$ chmod +x install.sh && ./install.sh`
-  * You're done :)
+  * Reboot!
 
-## Current Setup
-  * Linux Distro: `Ubuntu 16.04 LTS`
-  * Window Manager: `i3-gaps`
-  * Bar: `i3blocks`
+## Setup
+  * Distro: `Ubuntu 16.04`
+  * Window Manager: `i3`
+  * Status Bar: `i3blocks`
   * Launcher: `rofi`
-  * Terminal: `xterm`
-  * Shell: `bash`
+  * Terminal: `rxvt-unicode`
+  * Shell: `zsh`
   * Wallpaper Manager: `feh`
-  * Editor: `subl` + `nano`
-  * Terminal Font: `tewi` (thanks to lucy)
-  * Video Player: `mpv`
+  * Font: `tewi`
