@@ -1,5 +1,5 @@
 # Dotfiles
-##### *Last Updated: 11.11.2017*
+#### Last Updated: 11.11.2017
 
 ## Installation?
   * Clone the repo: `$ git clone https://github.com/stabbxr/dotfiles.git && cd dotfiles`
