@@ -1,104 +1,64 @@
-# Installation Script for dotfiles (http://github.com/stabbxr/dotfiles/)
+# dotfiles installation script ~ 11.11.2017
 #!/bin/bash
 
-# Update the system
 sudo apt-get -y update
+sudo apt-get -y install htop rofi i3 lolcat cowsay feh xcompmgr figlet ranger i3blocks pavucontrol pasystray >/dev/null 2>&1
 
-# Download required packages
-sudo apt-get -y install htop cmatrix tor tor-arm rofi i3 lolcat cowsay feh xcompmgr figlet vim ranger i3blocks pavucontrol pasystray
-
-# Extra packages 
-sudo apt-get -y install xfonts-terminus console-terminus weechat
-#echo "Installing Extra Packages"
-
-# Download tewi-font and install
-git clone https://www.github.com/lucy/tewi-font.git
+# download & install tewi font
+git clone https://www.github.com/lucy/tewi-font.git >/dev/null 2>&1
 cd tewi-font
-make
+make >/dev/null 2>&1
 cd out/
-sudo cp * /usr/share/fonts/
-
-# Installing the font
+sudo cp * /usr/share/fonts/ >/dev/null 2>&1
 sudo rm /etc/fonts/conf.d/70-no-bitmaps.conf
-sudo fc-cache -f -v
+sudo fc-cache -f -v >/dev/null 2>&1
+echo "[1/6] Tewi Installed"
 
-echo "[1/9] Tewi has been installed"
-
-# Download i3-gaps
-cd
-git clone https://www.github.com/Airblader/i3 i3-gaps
+# download & install i3
+cd; git clone https://www.github.com/Airblader/i3 i3-gaps >/dev/null 2>&1
 cd i3-gaps
-
-# Install dependencies for i3-gaps
-sudo apt-get -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf
-
-# Compile and install i3-gaps
-autoreconf --force --install
+sudo apt-get -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf >/dev/null 2>&1
+autoreconf --force --install >/dev/null 2>&1
 rm -rf build/
-mkdir -p build && cd build/
-
-# Download xcb-packages
+mkdir -p build && cd build/ 
 cd && cd Download/
-wget https://launchpad.net/ubuntu/+archive/primary/+files/libxcb-xrm-dev_1.0-1_amd64.deb
-wget https://launchpad.net/ubuntu/+archive/primary/+files/libxcb-xrm0_1.0-1_amd64.deb
-
-# Install xcb-packages
-sudo dpkg -i libxcb-xrm0*
-sudo dpkg -i libxcb-xrm-de*
-
-# Cleaning up leftover packages
+wget https://launchpad.net/ubuntu/+archive/primary/+files/libxcb-xrm-dev_1.0-1_amd64.deb >/dev/null 2>&1
+wget https://launchpad.net/ubuntu/+archive/primary/+files/libxcb-xrm0_1.0-1_amd64.deb >/dev/null 2>&1
+sudo dpkg -i libxcb-xrm0* >/dev/null 2>&1
+sudo dpkg -i libxcb-xrm-de* >/dev/null 2>&1
 sudo rm libxcb*
-
-# Back to i3-gaps installation
 cd && cd i3-gaps/build/
-../configure --prefix=/usr --sysconfdir=/etc
-make && sudo make install
+../configure --prefix=/usr --sysconfdir=/etc >/dev/null 2>&1
+make && sudo make install >/dev/null 2>&1
+echo "[2/6] i3 Installed"
 
-echo "[2/9] i3-gaps has been installed"
-
-# Install font-awesome framework, Icons for i3blocks
+# download & install font awesome for icons
 cd && cd Downloads
-wget http://fontawesome.io/assets/font-awesome-4.7.0.zip
-unzip font-awesome*
+wget http://fontawesome.io/assets/font-awesome-4.7.0.zip >/dev/null 2>&1
+unzip font-awesome* >/dev/null 2>&1
 cd font-awe*
 cd fonts*
-sudo cp * /usr/share/fonts
+sudo cp * /usr/share/fonts >/dev/null 2>&1
 sudo rm /etc/fonts/conf.d/70*
+sudo fc-cache -f -v >/dev/null 2>&1
+echo "[3/6] Font Awesome Installed!"
 
-# Update font cache just to make sure we're installed
-sudo fc-cache -f -v
-
-echo "[3/9] Font-awesome framework installed"
-
-# Copy over configs from dotfiles repo
+# copy config files
 cd && mkdir .i3
 cd dotfiles/i3/
 cp config ~/.i3/
+echo "[4/6] i3 Config Copied"
 
-echo "[4/9] i3 configuration copied"
-
-# Copy over i3 blocks config
 cd && cd dotfiles
 cd i3
 sudo cp i3blocks.conf /etc/i3blocks.conf
+echo "[5/6] i3 Blocks Config Copied"
 
-echo "[5/9] i3-blocks configuaration copied"
-
-# bashrc
 cd && cd dotfiles/bash/
 sudo cp bashrc ~/.bashrc
+echo "[6/6] Installation Sucessful!"
 
-echo "[6/9] bashrc copied!"
-
-# Update the system to make sure everything is complete
-echo "[7/10] Updating system"
-sudo apt-get update
-
-echo "[8/9] System updated"
-
-# Clean up and finalise
+# clean up & reboot
 cd && rm -rf dotfiles/ Desktop/ Documents/ Downloads/ i3-gaps Music/ Pictures/ Public/ Templates/ Videos/
 rm examples.desktop
 read -p "[ENTER] to reboot!"; sudo reboot
-
-# EOF
