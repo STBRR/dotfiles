@@ -2,7 +2,12 @@
 #!/bin/bash
 
 sudo apt-get -y update
-sudo apt-get -y install htop rofi i3 lolcat cowsay feh xcompmgr figlet ranger i3blocks pavucontrol pasystray >/dev/null 2>&1
+sudo apt-get -y install htop ntpdate rofi i3 lolcat cowsay feh xcompmgr figlet ranger i3blocks pavucontrol pasystray >/dev/null 2>&1
+
+# remove current timezone + set up system date time for uk time
+sudo rm /etc/localtime
+sudo cp /usr/share/zoneinfo/Europe/London /etc/localtime
+sudo ln -s /usr/share/zoneinfo/Europe/London /etc/localtime
 
 # download & install tewi font
 git clone https://www.github.com/lucy/tewi-font.git >/dev/null 2>&1
@@ -49,16 +54,12 @@ cd dotfiles/i3/
 cp config ~/.i3/
 echo "[4/6] i3 Config Copied"
 
-cd && cd dotfiles
-cd i3
-sudo cp i3blocks.conf /etc/i3blocks.conf
+cd && cd dotfiles; cd i3; sudo cp i3blocks.conf /etc/i3blocks.conf
 echo "[5/6] i3 Blocks Config Copied"
 
-cd && cd dotfiles/bash/
-sudo cp bashrc ~/.bashrc
+cd && cd dotfiles/bash/; sudo cp bashrc ~/.bashrc
 echo "[6/6] Installation Sucessful!"
 
 # clean up & reboot
-cd && rm -rf dotfiles/ Desktop/ Documents/ Downloads/ i3-gaps Music/ Pictures/ Public/ Templates/ Videos/
-rm examples.desktop
+cd && rm -rf dotfiles/ Desktop/ Documents/ Downloads/ i3-gaps Music/ Pictures/ Public/ Templates/ Videos/; rm examples.desktop
 read -p "[ENTER] to reboot!"; sudo reboot
