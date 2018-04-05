@@ -154,12 +154,6 @@ bar {
 	}
 }
 
-
-# i3-gaps settings
-gaps inner 4									
-gaps outer 4
-new_window 1pixel
-
 # Auto-start programs
 exec --no-startup-id xcompmgr
 exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/
