@@ -1,6 +1,4 @@
-# i3 config :D
-
-# System Fonts
+# fonts
 font pango:tewi, FontAwesome 9
 
 set $up l
@@ -8,8 +6,7 @@ set $down k
 set $left j
 set $right semicolon
 
-floating_modifier Mod1
-
+floating_modifier Mod1 # alt modifier key
 bindsym Mod1+Return exec i3-sensible-terminal
 bindsym Mod1+Shift+q kill
 bindsym Mod1+$left focus left
@@ -44,16 +41,16 @@ bindsym Mod1+Shift+minus move scratchpad
 bindsym Mod1+minus scratchpad show
 
 # workspace vars
-set $WS1 "1. "
-set $WS2 "2. "
-set $WS3 "3. "
-set $WS4 "4. "
-set $WS5 "5. "
-set $WS6 "6. "
-set $WS7 "7. "
-set $WS8 "8. "
-set $WS9 "9. "
-set $WS10 "10. "
+set $WS1 "1. insert icon here"
+set $WS2 "2. insert icon here"
+set $WS3 "3. insert icon here"
+set $WS4 "4. insert icon here"
+set $WS5 "5. insert icon here"
+set $WS6 "6. insert icon here"
+set $WS7 "7. insert icon here"
+set $WS8 "8. insert icon here"
+set $WS9 "9. insert icon here"
+set $WS10 "10. insert icon here"
 
 bindsym Mod1+1 workspace $WS1
 bindsym Mod1+2 workspace $WS2
@@ -84,13 +81,10 @@ mode "resize" {
         bindsym $left       resize shrink width 10 px or 10 ppt
         bindsym $down       resize grow height 10 px or 10 ppt
         bindsym $up         resize shrink height 10 px or 10 ppt
-        bindsym $right      resize grow width 10 px or 10 ppt
-
         bindsym Left        resize shrink width 10 px or 10 ppt
         bindsym Down        resize grow height 10 px or 10 ppt
         bindsym Up          resize shrink height 10 px or 10 ppt
-        bindsym Right       resize grow width 10 px or 10 ppt
-e
+        bindsym Right       resize grow width 10 px or 10 ppt 
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
@@ -99,7 +93,6 @@ bindsym Mod1+r mode "resize"
 bar {
         status_command i3blocks
         tray_output primary
-	
 	colors {
 		# hex colors
 		background #2F343F
@@ -115,7 +108,7 @@ exec --no-startup-id xcompmgr
 exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet
-exec --no-startup-id pasystray
+exec --no-startup-id pasystray                            
 
 # binds
 bindsym Mod1+d exec rofi -show run -bg "#000000" -font "tewi 9" -fg "#FFFFFF" -hlfg "#b5b5b5" -opacity "95" -hide-scrollbar -lines 5
