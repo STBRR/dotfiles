@@ -42,7 +42,12 @@ echo "..success"
 echo "Copying Configuration Files"
 rm ~/.config/i3/config && cp ~/dotfiles/i3/config ~/.config/i3/config
 sudo cp ~/dotfiles/i3/i3blocks.conf /etc/i3blocks.conf
+
+# Copy zsh configuration
 rm ~/.zshrc; cp ~/dotfiles/zsh/zshrc ~/.zshrc
+
+# Copy tmux configuration
+cp ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 echo "..success"
 
 echo "Installation Finished, Please reboot to finish setup."
