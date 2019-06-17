@@ -1,12 +1,12 @@
-# fonts
-font pango:tewi, FontAwesome 9
+# Terminal Font
+font pango:Tamsyn, FontAwesome 9
 
 set $up l
 set $down k
 set $left j
 set $right semicolon
 
-floating_modifier Mod1 # alt modifier key
+floating_modifier Mod1
 bindsym Mod1+Return exec i3-sensible-terminal
 bindsym Mod1+Shift+q kill
 bindsym Mod1+$left focus left
@@ -40,17 +40,17 @@ bindsym Mod1+a focus parent
 bindsym Mod1+Shift+minus move scratchpad
 bindsym Mod1+minus scratchpad show
 
-# workspace vars
-set $WS1 "1. insert icon here"
-set $WS2 "2. insert icon here"
-set $WS3 "3. insert icon here"
-set $WS4 "4. insert icon here"
-set $WS5 "5. insert icon here"
-set $WS6 "6. insert icon here"
-set $WS7 "7. insert icon here"
-set $WS8 "8. insert icon here"
-set $WS9 "9. insert icon here"
-set $WS10 "10. insert icon here"
+# Workspace Names
+set $WS1 "one"
+set $WS2 "two"
+set $WS3 "three"
+set $WS4 "four"
+set $WS5 "five"
+set $WS6 "six"
+set $WS7 "seven"
+set $WS8 "eight"
+set $WS9 "nine"
+set $WS10 "ten"
 
 bindsym Mod1+1 workspace $WS1
 bindsym Mod1+2 workspace $WS2
@@ -93,25 +93,22 @@ bindsym Mod1+r mode "resize"
 bar {
         status_command i3blocks
         tray_output primary
-	colors {
-		# hex colors
-		background #2F343F
-		focused_workspace	#2F343F	#2F343F	#F3F4F5
-		active_workspace	#2F343F	#2F343F	#F3F4F5
-		inactive_workspace	#2F343F	#2F343F	#636A78
-		urgent_workspace	#2F343F	#FF00FF	#F3F4F5
-	}
+        colors {
+                # hex colors
+                background #2F343F
+                focused_workspace       #2F343F #2F343F #F3F4F5
+                active_workspace        #2F343F #2F343F #F3F4F5
+                inactive_workspace      #2F343F #2F343F #636A78
+                urgent_workspace        #2F343F #FF00FF #F3F4F5
+        }
 }
 
 # autoexec
 exec --no-startup-id xcompmgr
-exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/
-exec --no-startup-id dunst
-exec --no-startup-id nm-applet
-exec --no-startup-id pasystray                            
+exec --no-startup-id nm-applet                      
 
 # binds
-bindsym Mod1+d exec rofi -show run -bg "#000000" -font "tewi 9" -fg "#FFFFFF" -hlfg "#b5b5b5" -opacity "95" -hide-scrollbar -lines 5
+bindsym Mod1+d exec rofi -show run -bg "#000000" -font "Tamsyn 9" -fg "#FFFFFF" -hlfg "#b5b5b5" -opacity "95" -hide-scrollbar -lines 5
 bindsym Mod1+Shift+p exec --no-startup-id shutdown -P now
 
 exec i3-config-wizard
