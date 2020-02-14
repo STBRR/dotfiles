@@ -34,7 +34,7 @@ echo "[6/6] Copying Configuration Files"
 rm ~/.zshrc; cp configs/zshrc ~/.zshrc
 
 # Copy i3 config
-sudo rm ~/.configs/i3/config; cp configs/i3main ~/.configs/i3/config
+sudo rm ~/.config/i3/config; cp configs/i3main ~/.config/i3/config
 sudo cp configs/i3blocks /etc/i3blocks.conf
 
 # Copy tmux config
