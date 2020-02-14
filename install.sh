@@ -40,6 +40,9 @@ sudo cp configs/i3blocks /etc/i3blocks.conf
 # Copy tmux config
 cp configs/tmux ~/.tmux.conf
 
+# Copy over sublime-text config 
+sudo cp configs/sublime ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
+
 # Generate SSH keys
 echo "\nGenerating SSH Keys!"
 ssh-keygen
