@@ -1,20 +1,19 @@
-## Linux Dotfiles..
-Quick & easy setup for debian-based boxes
+## My Dotfiles 
+Personal configs and setup for linux boxes.
 
 ### Setup
-* Terminal: rxvt-unicode
-* Shell: zsh
-* File Browser: Thunar (w/ GTK Dark Theme)
+* Shell: zsh (jreese)
+* Font: Inconsolata
+* File Browser: Thunar
 * Color Schemer: pywal
 * Window Manager: i3-wm
 * Status Bar: i3-blocks
 * Search Menu: rofi
-* Browser: Firefox Developer Edition
-* Media Player: mpv
+* Browser: Firefox
 * Editor: Sublime Text
 
 ### Installation
-Clone & Execute: `git clone https://github.com/scktz/dotfiles.git && cd dotfiles/; sh install.sh`
+* `git clone https://github.com/scktz/dotfiles.git && cd dotfiles/; sudo sh install.sh`
 
 
 
