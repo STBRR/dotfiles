@@ -1,0 +1,119 @@
+# Terminal Font
+font pango:Inconsolata, 10
+
+set $up l
+set $down k
+set $left j
+set $right semicolon
+
+floating_modifier Mod1
+bindsym Mod1+Return exec gnome-terminal
+bindsym Mod1+Shift+q kill
+bindsym Mod1+$left focus left
+bindsym Mod1+$down focus down
+bindsym Mod1+$up focus up
+bindsym Mod1+$right focus right
+bindsym Mod1+Left focus left
+bindsym Mod1+Down focus down
+bindsym Mod1+Up focus up
+bindsym Mod1+Right focus right
+
+# move focused window
+bindsym Mod1+Shift+$left move left
+bindsym Mod1+Shift+$down move down
+bindsym Mod1+Shift+$up move up
+bindsym Mod1+Shift+$right move right
+bindsym Mod1+Shift+Left move left
+bindsym Mod1+Shift+Down move down
+bindsym Mod1+Shift+Up move up
+bindsym Mod1+Shift+Right move right
+bindsym Mod1+h split h
+bindsym Mod1+v split v
+bindsym Mod1+f fullscreen toggle
+bindsym Mod1+s layout stacking
+bindsym Mod1+w layout tabbed
+bindsym Mod1+e layout toggle split
+bindsym Mod1+Shift+space floating toggle
+bindsym Mod1+space focus mode_toggle
+bindsym Mod1+a focus parent
+#bindsym Mod1+d focus child
+bindsym Mod1+Shift+minus move scratchpad
+bindsym Mod1+minus scratchpad show
+
+# Workspace Names
+set $WS1 "1"
+set $WS2 "2"
+set $WS3 "3"
+set $WS4 "4"
+set $WS5 "5"
+set $WS6 "6"
+set $WS7 "7"
+set $WS8 "8"
+set $WS9 "9"
+set $WS10 "10"
+
+# Disable titlebar of new windows
+# new_window 2pixel
+
+# Workspace keybinds.
+bindsym Mod1+1 workspace $WS1
+bindsym Mod1+2 workspace $WS2
+bindsym Mod1+3 workspace $WS3
+bindsym Mod1+4 workspace $WS4
+bindsym Mod1+5 workspace $WS5
+bindsym Mod1+6 workspace $WS6
+bindsym Mod1+7 workspace $WS7
+bindsym Mod1+8 workspace $WS8
+bindsym Mod1+9 workspace $WS9
+bindsym Mod1+0 workspace $WS10
+bindsym Mod1+Shift+1 move container to workspace $WS1
+bindsym Mod1+Shift+2 move container to workspace $WS2
+bindsym Mod1+Shift+3 move container to workspace $WS3
+bindsym Mod1+Shift+4 move container to workspace $WS4
+bindsym Mod1+Shift+5 move container to workspace $WS5
+bindsym Mod1+Shift+6 move container to workspace $WS6
+bindsym Mod1+Shift+7 move container to workspace $WS7
+bindsym Mod1+Shift+8 move container to workspace $WS8
+bindsym Mod1+Shift+9 move container to workspace $WS9
+bindsym Mod1+Shift+0 move container to workspace $WS10
+
+bindsym Mod1+Shift+c reload
+bindsym Mod1+Shift+r restart
+bindsym Mod1+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+mode "resize" {
+        bindsym $left       resize shrink width 10 px or 10 ppt
+        bindsym $down       resize grow height 10 px or 10 ppt
+        bindsym $up         resize shrink height 10 px or 10 ppt
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up          resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt 
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym Mod1+r mode "resize"
+bar {
+        status_command i3blocks
+        tray_output primary
+        colors {
+                # hex colors
+                background #2F343F
+                focused_workspace       #2B9ECD #2B9ECD #FFFFFF
+                active_workspace        #2F343F #2F343F #F3F4F5
+                inactive_workspace      #2F343F #2F343F #636A78
+                urgent_workspace        #2F343F #FF00FF #F3F4F5
+        }
+}
+
+# autoexec
+exec --no-startup-id xcompmgr
+exec --no-startup-id nm-applet                      
+exec --no-startup-id setxkbmap gb
+
+# binds
+bindsym Mod1+d exec rofi -show run -bg "#000000" -font "Tamsyn 9" -fg "#FFFFFF" -hlfg "#b5b5b5" -opacity "95" -hide-scrollbar -lines 5
+bindsym Mod1+Shift+p exec --no-startup-id shutdown -P now
+
+exec i3-config-wizard
