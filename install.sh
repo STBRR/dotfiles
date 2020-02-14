@@ -27,10 +27,10 @@ echo "..zsh Version: $(zsh --version)"
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" > /dev/null 2>&1
 echo "..success"
 
-# Copy i3 configuration
+# Copy i3 config
 echo "[6/6] Copying Configuration Files"
 
-# Copy zsh configuration
+# Copy zsh config
 rm ~/.zshrc; cp configs/zshrc ~/.zshrc
 
 # Copy i3 config
@@ -40,7 +40,8 @@ sudo cp configs/i3blocks /etc/i3blocks.conf
 # Copy tmux config
 cp configs/tmux ~/.tmux.conf
 
-# Copy over sublime-text config 
+# Copy over sublime-text config
+cd ~/.config/; mkdir sublime-text-3; cd sublime-text-3; mkdir Packages; cd Packages; mkdir User; cd; cd dotfiles
 sudo cp configs/sublime ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
 
 # Generate SSH keys
