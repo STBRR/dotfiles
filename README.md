@@ -1,4 +1,4 @@
-## My Dotfiles 
+## Rice Config
 Personal configs and setup for linux boxes.
 
 ### Setup
