@@ -1,0 +1,32 @@
+live_config_reload = true
+
+import = [
+    "~/.config/alacritty/themes/themes/tomorrow_night_bright.toml"
+]
+
+[font]
+size = 14.0
+
+[font.normal]
+family = "Agave Nerd Font"
+style = "Medium"
+
+[font.bold]
+family = "Agave Nerd Font"
+style = "Bold"
+
+[window]
+opacity = 0.95
+
+[window.padding]
+x = 5
+y = 5
+
+[env]
+TERM = "xterm-256color"
+
+[scrolling]
+history = 9500
+multiplier = 5
+
+
