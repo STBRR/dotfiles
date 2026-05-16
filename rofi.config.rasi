@@ -1,0 +1,5 @@
+configuration {
+    lines: 5;
+}
+
+@theme "/home/kali/.config/rofi/gruvbox.rasi"
