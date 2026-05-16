@@ -22,7 +22,9 @@ echo "Installing GTK theme..."
 cd ~/.themes
 git clone https://github.com/Fausto-Korpsvart/Gruvbox-GTK-Theme.git
 cd Gruvbox-GTK-Theme
+cd themes
 ./install.sh
+cd ..
 cp -r icons/* ~/.icons/
 
 echo "Installing dependencies..."
