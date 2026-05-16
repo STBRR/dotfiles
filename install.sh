@@ -9,6 +9,23 @@ mkdir -p ~/.config/{alacritty,i3,i3blocks,rofi,dunst}
 mkdir -p ~/.themes
 mkdir -p ~/.icons
 
+# Wallpaper
+mkdir -p ~/Pictures
+cp $DOTFILES/wallpaper/spacemars-blur.png ~/Pictures/spacemars-blur.png
+
+# Font
+cp $DOTFILES/font/IoskeleyMono-NerdFont-Normal.zip /tmp/font.zip
+cd /tmp
+unzip font.zip -d font-install
+cd font-install/
+sudo cp *.ttf /usr/share/fonts
+sudo fc-cache -f -v
+
+# Helper Scripts
+mkdir -p ~/Documents
+cp $DOTFILES/helpers/fix_history.sh ~/Documents/fix_history.sh
+cp $DOTFILES/helpers/vm.sh ~/Documents/vm.sh
+
 # Symlink configs
 ln -sf $DOTFILES/alacritty.toml ~/.config/alacritty/alacritty.toml
 ln -sf $DOTFILES/i3.config ~/.config/i3/config
@@ -27,6 +44,9 @@ cd themes
 cd ..
 cp -r icons/* ~/.icons/
 
+echo "Updating Packages..."
+sudo apt -y update
+
 echo "Installing dependencies..."
 sudo apt install -y \
     alacritty \
@@ -34,7 +54,12 @@ sudo apt install -y \
     dunst \
     vivid \
     lxappearance \
+    i3 \
+    vivid \
     i3blocks \
-    feh
+    feh \
+    imwheel \
+    lsd \
+    bat-musl
 
 echo "Done! Reload i3 with mod+shift+r"
