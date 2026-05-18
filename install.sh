@@ -20,6 +20,7 @@ unzip font.zip -d font-install
 cd font-install/
 sudo cp *.ttf /usr/share/fonts
 sudo fc-cache -f -v
+rm /tmp/font-install /tmp/font.zip
 
 # Helper Scripts
 mkdir -p ~/Documents
@@ -34,6 +35,9 @@ ln -sf $DOTFILES/gruvbox.rasi ~/.config/rofi/gruvbox.rasi
 ln -sf $DOTFILES/rofi.config.rasi ~/.config/rofi/config.rasi
 ln -sf $DOTFILES/dunstrc ~/.config/dunst/dunstrc
 ln -sf $DOTFILES/.zshrc ~/.zshrc
+
+# Fix nerd font
+sed -i 's/Ioskeley Mono/IoskeleyMono Nerd Font/g' ~/.config/alacritty/alacritty.toml
 
 echo "Installing GTK theme..."
 cd ~/.themes
@@ -60,6 +64,13 @@ sudo apt install -y \
     feh \
     imwheel \
     lsd \
-    bat-musl
+    bat \
+    zsh
+
+# oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" & 
+cp $DOTFILES/.zsh ~/.zshrc
+
+
 
 echo "Done! Reload i3 with mod+shift+r"
