@@ -36,8 +36,17 @@ ln -sf $DOTFILES/rofi.config.rasi ~/.config/rofi/config.rasi
 ln -sf $DOTFILES/dunstrc ~/.config/dunst/dunstrc
 ln -sf $DOTFILES/.zshrc ~/.zshrc
 
+<<<<<<< HEAD
 # Fix nerd font
 sed -i 's/Ioskeley Mono/IoskeleyMono Nerd Font/g' ~/.config/alacritty/alacritty.toml
+=======
+echo "Installig i3Blocks + Config"
+git clone https://github.com/vivien/i3blocks-contrib ~/.config/i3blocks/contrib
+cd ~/.config/i3blocks/contrib
+./configure && make && sudo make install
+
+sudo cp $DOTFILES/i3blocks.config /etc/i3blocks.conf
+>>>>>>> 11fd9b7 (fix: i3blocks contrib compile and copying)
 
 echo "Installing GTK theme..."
 cd ~/.themes
